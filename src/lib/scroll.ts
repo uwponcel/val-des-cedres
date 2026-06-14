@@ -5,11 +5,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+let lenisInstance: Lenis | null = null;
+
 export function prefersReducedMotion(): boolean {
   return (
     typeof window !== 'undefined' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
   );
+}
+
+/** Jump to the top instantly, without scrubbing back through every pinned scene. */
+export function scrollToTop(): void {
+  if (lenisInstance) lenisInstance.scrollTo(0, { immediate: true });
+  else window.scrollTo({ top: 0 });
 }
 
 /**
@@ -21,6 +29,7 @@ export function useSmoothScroll(): void {
     if (prefersReducedMotion()) return;
 
     const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+    lenisInstance = lenis;
     lenis.on('scroll', ScrollTrigger.update);
 
     const onTick = (time: number) => lenis.raf(time * 1000);
@@ -30,6 +39,7 @@ export function useSmoothScroll(): void {
     return () => {
       gsap.ticker.remove(onTick);
       lenis.destroy();
+      lenisInstance = null;
     };
   }, []);
 }

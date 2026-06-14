@@ -2,6 +2,9 @@ import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useI18n } from '../i18n/useI18n';
 
+const label =
+  'font-sans text-[10px] uppercase tracking-[0.3em] text-bone/80 [writing-mode:vertical-rl] [text-shadow:0_1px_6px_rgba(0,0,0,0.6)]';
+
 /** Fixed left-edge indicator that tracks the descent from sky to river. */
 export function ProgressDescent() {
   const { t } = useI18n();
@@ -26,20 +29,16 @@ export function ProgressDescent() {
       aria-hidden
       className="pointer-events-none fixed left-5 top-0 z-40 hidden h-screen flex-col items-center justify-center gap-4 md:flex"
     >
-      <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-bone/50 [writing-mode:vertical-rl]">
-        {t('progress.sky')}
-      </span>
-      <div className="relative h-[42vh] w-px bg-bone/20">
+      <span className={label}>{t('progress.sky')}</span>
+      <div className="relative h-[42vh] w-px bg-bone/35">
         <div ref={fill} className="absolute left-0 top-0 w-px bg-cognac" style={{ height: '0%' }} />
         <div
           ref={dot}
-          className="absolute -left-[3px] h-1.5 w-1.5 rounded-full bg-ember"
+          className="absolute -left-[3px] h-1.5 w-1.5 rounded-full bg-ember shadow-[0_0_8px_rgba(192,103,51,0.9)]"
           style={{ top: '-3px' }}
         />
       </div>
-      <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-bone/50 [writing-mode:vertical-rl]">
-        {t('progress.river')}
-      </span>
+      <span className={label}>{t('progress.river')}</span>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useI18n } from '../i18n/useI18n';
 import { property } from '../data/property';
+import { scrollToTop } from '../lib/scroll';
 
 export function Footer() {
   const { t } = useI18n();
@@ -20,12 +21,13 @@ export function Footer() {
           </p>
           <p className="text-bone/30">{property.programs.join(' · ')}</p>
         </div>
-        <a
-          href="#approche"
+        <button
+          type="button"
+          onClick={scrollToTop}
           className="font-sans text-sm uppercase tracking-widest text-bone/70 transition-colors hover:text-bone"
         >
           {t('footer.back')} ↑
-        </a>
+        </button>
       </div>
       <p className="mx-auto mt-8 max-w-7xl font-sans text-xs text-bone/30">
         © {year} · {property.address}, {property.city}

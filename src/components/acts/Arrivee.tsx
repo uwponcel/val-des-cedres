@@ -31,12 +31,8 @@ export function Arrivee() {
     return () => ctx.revert();
   }, [reduced]);
 
-  const stats = [
-    { ref: priceRef, suffix: ' $', label: t('stat.price') },
-    { ref: bedRef, suffix: '', label: t('stat.bedrooms') },
-    { ref: roomsRef, suffix: '', label: t('stat.rooms') },
-    { ref: landRef, suffix: ' pi²', label: t('stat.land') },
-  ];
+  const statCls = 'font-display text-3xl text-bone md:text-4xl';
+  const labelCls = 'mt-1 font-sans text-xs uppercase tracking-widest text-bone/50';
 
   return (
     <section
@@ -50,29 +46,45 @@ export function Arrivee() {
         className="absolute inset-0 h-full w-full object-cover"
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/25" />
 
-      <div ref={content} className="relative z-10 w-full px-8 py-24 md:px-16">
+      <div ref={content} className="relative z-10 w-full max-w-2xl px-8 py-24 md:px-16">
         <span className="font-display text-sm text-cognac">01</span>
-        <h2 className="mt-2 max-w-2xl font-display text-4xl leading-tight text-bone md:text-6xl">
+        <h2 className="mt-2 font-display text-4xl leading-tight text-bone md:text-6xl">
           {t('act.arrivee.title')}
         </h2>
-        <p className="mt-5 max-w-xl font-sans text-lg text-bone/70">
+        <p className="mt-5 max-w-md font-sans text-lg text-bone/70">
           {t('act.arrivee.tagline')}
         </p>
 
-        <dl className="mt-12 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.label}>
-              <dd className="font-display text-3xl text-bone md:text-4xl">
-                <span ref={s.ref}>0</span>
-                {s.suffix}
-              </dd>
-              <dt className="mt-1 font-sans text-xs uppercase tracking-widest text-bone/50">
-                {s.label}
-              </dt>
-            </div>
-          ))}
+        <div className="mt-12">
+          <p className="font-display text-5xl text-bone md:text-6xl">
+            <span ref={priceRef}>0</span> $
+          </p>
+          <p className="mt-1 font-sans text-xs uppercase tracking-[0.25em] text-bone/50">
+            {t('stat.price')}
+          </p>
+        </div>
+
+        <dl className="mt-8 flex flex-wrap gap-x-12 gap-y-6">
+          <div>
+            <dd className={statCls}>
+              <span ref={bedRef}>0</span>
+            </dd>
+            <dt className={labelCls}>{t('stat.bedrooms')}</dt>
+          </div>
+          <div>
+            <dd className={statCls}>
+              <span ref={roomsRef}>0</span>
+            </dd>
+            <dt className={labelCls}>{t('stat.rooms')}</dt>
+          </div>
+          <div>
+            <dd className={statCls}>
+              <span ref={landRef}>0</span> pi²
+            </dd>
+            <dt className={labelCls}>{t('stat.land')}</dt>
+          </div>
         </dl>
       </div>
     </section>

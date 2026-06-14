@@ -50,7 +50,6 @@ export const photos: Photo[] = [
   { file: '/photos/m21723694-far57-01.jpg', code: 'far' },
   { file: '/photos/m21723694-gar07-01.jpg', code: 'gar' },
   { file: '/photos/m21723694-gar62-01.jpg', code: 'gar' },
-  { file: '/photos/m21723694-gar79-01.jpg', code: 'gar' },
   { file: '/photos/m21723694-hal08-01.jpg', code: 'hal' },
   { file: '/photos/m21723694-hal09-01.jpg', code: 'hal' },
   { file: '/photos/m21723694-pri01-01.jpg', code: 'pri' },

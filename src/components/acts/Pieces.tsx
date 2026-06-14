@@ -10,10 +10,11 @@ const LEVELS: { key: RoomLevel; labelKey: string }[] = [
   { key: 'soussol', labelKey: 'pieces.levels.soussol' },
 ];
 
-const PLANS: Photo[] = [
-  { file: '/photos/m21723694-div76-01.jpg', code: 'plan' },
-  { file: '/photos/m21723694-div77-01.jpg', code: 'plan' },
-];
+const PLANS = [
+  { file: '/photos/m21723694-div76-01.jpg', code: 'plan', labelKey: 'pieces.plan.main' },
+  { file: '/photos/m21723694-div77-01.jpg', code: 'plan', labelKey: 'pieces.plan.garden' },
+  { file: '/photos/m21723694-gar79-01.jpg', code: 'plan', labelKey: 'pieces.plan.garage' },
+] satisfies (Photo & { labelKey: string })[];
 
 const cad = new Intl.NumberFormat('fr-CA', {
   style: 'currency',
@@ -81,16 +82,25 @@ export function Pieces() {
         <h3 className="mt-20 font-sans text-xs uppercase tracking-[0.3em] text-cognac">
           {t('pieces.plans')}
         </h3>
-        <div className="mt-5 grid gap-4 sm:grid-cols-2">
+        <div className="mt-5 grid gap-6 sm:grid-cols-3">
           {PLANS.map((p, i) => (
-            <button
-              key={p.file}
-              type="button"
-              onClick={() => setLb({ list: PLANS, index: i })}
-              className="overflow-hidden rounded-sm border border-ink/10 bg-white"
-            >
-              <img src={p.file} alt="Plan d'étage" className="h-full w-full object-contain" loading="lazy" />
-            </button>
+            <figure key={p.file}>
+              <button
+                type="button"
+                onClick={() => setLb({ list: PLANS, index: i })}
+                className="block w-full overflow-hidden rounded-sm border border-ink/10 bg-white"
+              >
+                <img
+                  src={p.file}
+                  alt={t(p.labelKey)}
+                  className="h-56 w-full object-contain p-2"
+                  loading="lazy"
+                />
+              </button>
+              <figcaption className="mt-2 font-sans text-xs uppercase tracking-widest text-ink/50">
+                {t(p.labelKey)}
+              </figcaption>
+            </figure>
           ))}
         </div>
 

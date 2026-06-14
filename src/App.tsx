@@ -17,6 +17,10 @@ export default function App() {
   return (
     <>
       <Nav />
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-x-0 top-0 z-40 h-24 bg-gradient-to-b from-ink/55 to-transparent"
+      />
       <ProgressDescent />
       <main>
         <Approche />

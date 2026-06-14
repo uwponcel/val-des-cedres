@@ -5,6 +5,7 @@ export interface Agent {
   title: string;
   brokerage: string;
   phone: string;
+  photo: string;
 }
 
 export type RoomLevel = 'rdc' | 'jardin' | 'soussol';
@@ -102,12 +103,14 @@ export const property: Property = {
       title: 'Courtier immobilier agréé',
       brokerage: 'RE/MAX du Cartier Bonjour',
       phone: '514 799-4149',
+      photo: '/courtiers/nathalie.jpg',
     },
     {
       name: 'Rémi Tremblay',
       title: 'Courtier immobilier',
       brokerage: 'RE/MAX du Cartier Bonjour',
       phone: '514 347-1666',
+      photo: '/courtiers/remi.jpg',
     },
   ],
   programs: ['Tranquilli-T', 'Affiliés RE/MAX Coproprié-T'],
