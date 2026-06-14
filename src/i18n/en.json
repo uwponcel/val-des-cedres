@@ -15,5 +15,15 @@
   "act.pieces.title": "Every room",
   "act.pieces.tagline": "Nineteen rooms. None without intention.",
   "act.invitation.title": "The invitation",
-  "act.invitation.tagline": "Arrange a private viewing."
+  "act.invitation.tagline": "Arrange a private viewing.",
+  "hero.cue": "Scroll",
+  "stat.price": "Asking price",
+  "stat.bedrooms": "Bedrooms",
+  "stat.rooms": "Rooms",
+  "stat.land": "Land",
+  "interieur.cap.salon": "Living room · stone wall, two-sided wood fireplace",
+  "interieur.cap.dining": "Dining room · opens to the veranda and terrace",
+  "interieur.cap.kitchen": "Kitchen · walnut shaker cabinets, raw granite island",
+  "progress.sky": "Sky",
+  "progress.river": "River"
 }

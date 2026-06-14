@@ -15,5 +15,15 @@
   "act.pieces.title": "Chaque pièce",
   "act.pieces.tagline": "Dix-neuf pièces. Aucune sans intention.",
   "act.invitation.title": "L'invitation",
-  "act.invitation.tagline": "Planifiez une visite privée."
+  "act.invitation.tagline": "Planifiez une visite privée.",
+  "hero.cue": "Descendre",
+  "stat.price": "Prix demandé",
+  "stat.bedrooms": "Chambres",
+  "stat.rooms": "Pièces",
+  "stat.land": "Terrain",
+  "interieur.cap.salon": "Salon · mur de pierre, foyer au bois deux faces",
+  "interieur.cap.dining": "Salle à manger · accès à la véranda et à la terrasse",
+  "interieur.cap.kitchen": "Cuisine · armoires shaker noyer, îlot en granit brut",
+  "progress.sky": "Ciel",
+  "progress.river": "Rivière"
 }
