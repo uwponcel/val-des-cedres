@@ -49,23 +49,23 @@ export function Approche() {
       <div className="sticky top-0 flex h-screen items-end overflow-hidden">
         <img
           ref={img0}
-          src="/photos/m21723694-aer67-01.jpg"
-          alt="Vue aérienne de la vallée boisée des Laurentides en automne"
+          src="/photos/m21723694-fac02-01.jpg"
+          alt="Façade de la résidence à charpente de bois massif"
           className="absolute inset-0 h-full w-full object-cover"
           fetchPriority="high"
           decoding="async"
         />
         <img
           ref={img1}
-          src="/photos/m21723694-aer68-01.jpg"
-          alt="Vue aérienne rapprochée de la propriété et de son allée"
+          src="/photos/m21723694-aer67-01.jpg"
+          alt="Vue aérienne de la vallée boisée des Laurentides en automne"
           className="absolute inset-0 h-full w-full object-cover"
           style={{ opacity: 0 }}
         />
         <img
           ref={img2}
-          src="/photos/m21723694-fac02-01.jpg"
-          alt="Façade de la résidence à charpente de bois massif"
+          src="/photos/m21723694-aer68-01.jpg"
+          alt="Vue aérienne rapprochée de la propriété et de son allée"
           className="absolute inset-0 h-full w-full object-cover"
           style={{ opacity: 0 }}
         />
