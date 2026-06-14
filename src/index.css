@@ -35,3 +35,39 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* Drifting steam for the thermal sanctuary act */
+.steam-blob {
+  position: absolute;
+  width: 42vmin;
+  height: 42vmin;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(242, 236, 224, 0.16), transparent 65%);
+  filter: blur(28px);
+  opacity: 0;
+  animation: steamRise 22s linear infinite;
+}
+
+@keyframes steamRise {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.55;
+  }
+  85% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steam-blob {
+    animation: none;
+    opacity: 0;
+  }
+}

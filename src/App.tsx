@@ -4,9 +4,11 @@ import { ProgressDescent } from './components/ProgressDescent';
 import { Approche } from './components/acts/Approche';
 import { Arrivee } from './components/acts/Arrivee';
 import { Interieur } from './components/acts/Interieur';
+import { Sanctuaire } from './components/acts/Sanctuaire';
+import { Riviere } from './components/acts/Riviere';
 import { useI18n } from './i18n/useI18n';
 
-const PLACEHOLDERS = ['sanctuaire', 'riviere', 'domaine', 'pieces', 'invitation'] as const;
+const PLACEHOLDERS = ['domaine', 'pieces', 'invitation'] as const;
 
 export default function App() {
   useSmoothScroll();
@@ -20,6 +22,8 @@ export default function App() {
         <Approche />
         <Arrivee />
         <Interieur />
+        <Sanctuaire />
+        <Riviere />
 
         {PLACEHOLDERS.map((id, i) => (
           <section
@@ -29,7 +33,7 @@ export default function App() {
           >
             <div>
               <span className="font-display text-sm text-cognac">
-                {String(i + 3).padStart(2, '0')}
+                {String(i + 5).padStart(2, '0')}
               </span>
               <h2 className="mt-2 max-w-3xl font-display text-4xl text-bone md:text-6xl">
                 {t(`act.${id}.title`)}
