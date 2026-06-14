@@ -71,3 +71,15 @@ body {
     opacity: 0;
   }
 }
+
+/* Property marker on the grounds map */
+.vc-pin {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: #c06733;
+  border: 2px solid #f2ece0;
+  box-shadow:
+    0 0 0 4px rgba(192, 103, 51, 0.3),
+    0 0 18px rgba(192, 103, 51, 0.7);
+}
