@@ -19,6 +19,11 @@ const SCENES = [
     alt: 'Cuisine en noyer avec îlot en granit brut',
     capKey: 'interieur.cap.kitchen',
   },
+  {
+    src: '/photos/m21723694-ccp30-01.jpg',
+    alt: 'Chambre des maîtres avec vue sur la forêt',
+    capKey: 'interieur.cap.bedroom',
+  },
 ];
 
 /** Act 2 - scroll-scrubbed glide through salon, dining and kitchen. */
@@ -44,7 +49,9 @@ export function Interieur() {
       tl.to([imgs.current[0], caps.current[0]], { opacity: 0 }, 0.85)
         .to([imgs.current[1], caps.current[1]], { opacity: 1 }, 0.85)
         .to([imgs.current[1], caps.current[1]], { opacity: 0 }, 1.85)
-        .to([imgs.current[2], caps.current[2]], { opacity: 1 }, 1.85);
+        .to([imgs.current[2], caps.current[2]], { opacity: 1 }, 1.85)
+        .to([imgs.current[2], caps.current[2]], { opacity: 0 }, 2.85)
+        .to([imgs.current[3], caps.current[3]], { opacity: 1 }, 2.85);
     }, outer);
     return () => ctx.revert();
   }, [reduced]);
@@ -53,7 +60,7 @@ export function Interieur() {
     <section
       id="interieur"
       ref={outer}
-      className={reduced ? 'relative' : 'relative h-[300vh]'}
+      className={reduced ? 'relative' : 'relative h-[400vh]'}
     >
       <div className="sticky top-0 flex h-screen items-end overflow-hidden">
         {SCENES.map((s, i) => (

@@ -5,18 +5,18 @@ import { prefersReducedMotion } from '../../lib/scroll';
 
 const SCENES = [
   {
-    src: '/photos/m21723694-sbp34-01.jpg',
-    alt: 'Salle de bain de la suite des maîtres avec baignoire à débordement',
+    src: '/photos/m21723694-far54-01.jpg',
+    alt: 'Spa extérieur sur la terrasse de pierre',
     capKey: 'sanctuaire.cap.1',
   },
   {
-    src: '/photos/m21723694-sdb48-01.jpg',
-    alt: 'Salle de bain avec bain vapeur et douche en verre',
+    src: '/photos/m21723694-div43-01.jpg',
+    alt: 'Sauna sec en cèdre avec fenêtre sur la forêt',
     capKey: 'sanctuaire.cap.2',
   },
   {
-    src: '/photos/m21723694-far54-01.jpg',
-    alt: 'Spa extérieur sur la terrasse de pierre',
+    src: '/photos/m21723694-sdb48-01.jpg',
+    alt: 'Bain vapeur et douche à jets en verre',
     capKey: 'sanctuaire.cap.3',
   },
 ];
