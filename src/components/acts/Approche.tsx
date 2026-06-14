@@ -52,6 +52,8 @@ export function Approche() {
           src="/photos/m21723694-aer67-01.jpg"
           alt="Vue aérienne de la vallée boisée des Laurentides en automne"
           className="absolute inset-0 h-full w-full object-cover"
+          fetchPriority="high"
+          decoding="async"
         />
         <img
           ref={img1}
