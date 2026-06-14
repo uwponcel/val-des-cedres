@@ -6,10 +6,10 @@ const POSTER = '/photos/m21723694-fac65-01.jpg';
 const ALT = 'Façade de la résidence à charpente de bois massif au cœur des Laurentides';
 
 /**
- * Act 0 - the arrival. A single edited reel (valley -> descent -> facade) plays
- * once and rests on the facade. Reduced motion shows the facade still instead.
- * The facade photo doubles as poster, so the hero reads correctly before the
- * video buffers and even if it never loads.
+ * Act 0 - the arrival. A single edited reel (valley -> descent -> facade) loops.
+ * Reduced motion shows the facade still instead. The facade photo doubles as
+ * poster, so the hero reads correctly before the video buffers and even if it
+ * never loads.
  */
 export function Approche() {
   const { t } = useI18n();
@@ -30,6 +30,7 @@ export function Approche() {
           className="absolute inset-0 h-full w-full object-cover"
           poster={POSTER}
           autoPlay
+          loop
           muted
           playsInline
           preload="auto"
