@@ -2,15 +2,18 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { useI18n } from '../../i18n/useI18n';
 import { prefersReducedMotion } from '../../lib/scroll';
+import { SceneVideo } from '../ui/SceneVideo';
 
 const SCENES = [
   {
-    src: '/photos/m21723694-tse53-01.jpg',
+    video: '/videos/vers-riviere-1.mp4',
+    poster: '/photos/m21723694-tse53-01.jpg',
     alt: 'Terrasse de pierre surplombant le boisé qui descend vers la rivière',
     capKey: 'vers-riviere.cap.1',
   },
   {
-    src: '/photos/m21723694-ext59-01.jpg',
+    video: '/videos/vers-riviere-2.mp4',
+    poster: '/photos/m21723694-ext59-01.jpg',
     alt: 'Sentier de pierre descendant vers la rivière à travers le boisé',
     capKey: 'vers-riviere.cap.2',
   },
@@ -23,7 +26,7 @@ const SCENES = [
 export function VersRiviere() {
   const { t } = useI18n();
   const outer = useRef<HTMLDivElement>(null);
-  const imgs = useRef<(HTMLImageElement | null)[]>([]);
+  const media = useRef<(HTMLElement | null)[]>([]);
   const caps = useRef<(HTMLParagraphElement | null)[]>([]);
   const reduced = prefersReducedMotion();
 
@@ -39,8 +42,11 @@ export function VersRiviere() {
           scrub: 0.5,
         },
       });
-      tl.to([imgs.current[0], caps.current[0]], { opacity: 0 }, 0.9)
-        .to([imgs.current[1], caps.current[1]], { opacity: 1 }, 0.9);
+      tl.to([media.current[0], caps.current[0]], { opacity: 0 }, 0.9).to(
+        [media.current[1], caps.current[1]],
+        { opacity: 1 },
+        0.9,
+      );
     }, outer);
     return () => ctx.revert();
   }, [reduced]);
@@ -49,16 +55,16 @@ export function VersRiviere() {
     <section id="vers-riviere" ref={outer} className={reduced ? 'relative' : 'relative h-[220vh]'}>
       <div className="sticky top-0 flex h-screen items-end overflow-hidden">
         {SCENES.map((s, i) => (
-          <img
-            key={s.src}
+          <SceneVideo
+            key={s.video}
             ref={(el) => {
-              imgs.current[i] = el;
+              media.current[i] = el;
             }}
-            src={s.src}
+            src={s.video}
+            poster={s.poster}
             alt={s.alt}
             className="absolute inset-0 h-full w-full object-cover"
             style={{ opacity: i === 0 ? 1 : 0 }}
-            loading="lazy"
           />
         ))}
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
@@ -87,7 +93,7 @@ export function VersRiviere() {
       {reduced && (
         <div className="grid gap-1 md:grid-cols-2">
           {SCENES.slice(1).map((s) => (
-            <img key={s.src} src={s.src} alt={s.alt} className="h-80 w-full object-cover" loading="lazy" />
+            <img key={s.poster} src={s.poster} alt={s.alt} className="h-80 w-full object-cover" loading="lazy" />
           ))}
         </div>
       )}

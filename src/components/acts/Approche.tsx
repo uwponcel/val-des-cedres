@@ -3,17 +3,18 @@ import { gsap } from 'gsap';
 import { useI18n } from '../../i18n/useI18n';
 import { property } from '../../data/property';
 import { prefersReducedMotion } from '../../lib/scroll';
+import { SceneVideo } from '../ui/SceneVideo';
 
 /**
- * Act 0 - the descent. Scroll-scrubbed crossfade from a wide valley aerial,
- * down to a top-down view of the property, landing on the facade.
+ * Act 0 - the descent. Opens on the facade (still), then real drone motion:
+ * a glide over the valley and a descent toward the property.
  */
 export function Approche() {
   const { t } = useI18n();
   const outer = useRef<HTMLDivElement>(null);
   const img0 = useRef<HTMLImageElement>(null);
-  const img1 = useRef<HTMLImageElement>(null);
-  const img2 = useRef<HTMLImageElement>(null);
+  const img1 = useRef<HTMLElement>(null);
+  const img2 = useRef<HTMLElement>(null);
   const text = useRef<HTMLDivElement>(null);
   const cue = useRef<HTMLDivElement>(null);
   const reduced = prefersReducedMotion();
@@ -36,10 +37,10 @@ export function Approche() {
         .fromTo(img0.current, { scale: 1.05 }, { scale: 1.22, duration: 1.6 }, 0)
         .to(img0.current, { opacity: 0, duration: 0.5 }, 1.05)
         .to(img1.current, { opacity: 1, duration: 0.5 }, 1.05)
-        .fromTo(img1.current, { scale: 1.18 }, { scale: 1.0, duration: 1.5 }, 1.05)
+        .fromTo(img1.current, { scale: 1.12 }, { scale: 1.0, duration: 1.5 }, 1.05)
         .to(img1.current, { opacity: 0, duration: 0.5 }, 2.25)
         .to(img2.current, { opacity: 1, duration: 0.5 }, 2.25)
-        .fromTo(img2.current, { scale: 1.12 }, { scale: 1.0, duration: 1.4 }, 2.25);
+        .fromTo(img2.current, { scale: 1.1 }, { scale: 1.0, duration: 1.4 }, 2.25);
     }, outer);
     return () => ctx.revert();
   }, [reduced]);
@@ -55,17 +56,21 @@ export function Approche() {
           fetchPriority="high"
           decoding="async"
         />
-        <img
+        <SceneVideo
           ref={img1}
-          src="/photos/m21723694-aer67-01.jpg"
-          alt="Vue aérienne de la vallée boisée des Laurentides en automne"
+          eager
+          src="/videos/hero-valley.mp4"
+          poster="/photos/m21723694-aer67-01.jpg"
+          alt="Survol aérien de la vallée boisée des Laurentides en automne"
           className="absolute inset-0 h-full w-full object-cover"
           style={{ opacity: 0 }}
         />
-        <img
+        <SceneVideo
           ref={img2}
-          src="/photos/m21723694-aer68-01.jpg"
-          alt="Vue aérienne rapprochée de la propriété et de son allée"
+          eager
+          src="/videos/hero-descent.mp4"
+          poster="/photos/m21723694-aer68-01.jpg"
+          alt="Descente aérienne vers la propriété et son allée"
           className="absolute inset-0 h-full w-full object-cover"
           style={{ opacity: 0 }}
         />
