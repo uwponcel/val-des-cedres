@@ -42,7 +42,7 @@ export function Approche() {
 
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-ink/10" />
 
-      <div className="relative z-10 flex h-full flex-col justify-end p-8 pb-28 md:p-16 md:pb-32">
+      <div className="relative z-10 flex h-full flex-col justify-end p-8 md:p-16 pb-32">
         <div className="hero-reveal">
           <p className="font-sans text-sm uppercase tracking-[0.3em] text-bone/70">
             {t('hero.kicker')} · {property.region}

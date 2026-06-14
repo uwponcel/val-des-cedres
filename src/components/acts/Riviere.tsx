@@ -21,7 +21,6 @@ export function Riviere() {
           {t('act.riviere.title')}
         </h2>
         <p className="mt-5 max-w-xl font-sans text-lg text-bone/75">{t('act.riviere.tagline')}</p>
-        <p className="mt-2 font-display text-xl italic text-bone/60">{t('riviere.line')}</p>
       </div>
     </section>
   );
