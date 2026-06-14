@@ -22,9 +22,6 @@ export function Domaine() {
           <h2 className="mt-2 font-display text-4xl text-bone md:text-6xl">
             {t('act.domaine.title')}
           </h2>
-          <p className="mt-5 max-w-md font-sans text-lg text-bone/70">
-            {t('act.domaine.tagline')}
-          </p>
 
           <div className="mt-10 flex items-baseline gap-3">
             <span className="font-display text-5xl text-bone">{nf.format(property.landSqFt)}</span>
