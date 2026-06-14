@@ -72,7 +72,7 @@ body {
   }
 }
 
-/* Single-video hero: text reveal + scroll cue */
+/* Single-video hero: text reveal + swipe-up cue */
 .hero-reveal {
   animation: heroReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
@@ -88,26 +88,52 @@ body {
   }
 }
 
-.hero-cue {
-  animation: heroCue 2.6s ease-in-out infinite;
+/* Hand swipe-up cue: the hand rises and fades while a chevron pulses upward */
+.swipe-hand {
+  animation: swipeHand 1.9s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
-@keyframes heroCue {
+@keyframes swipeHand {
+  0% {
+    transform: translate(-50%, 2px);
+    opacity: 0;
+  }
+  25%,
+  70% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(-50%, -13px);
+    opacity: 0;
+  }
+}
+
+.swipe-chevron {
+  animation: swipeChevron 1.9s ease-in-out infinite;
+}
+
+@keyframes swipeChevron {
   0%,
   100% {
-    transform: translateY(0);
-    opacity: 0.55;
+    transform: translate(-50%, 3px);
+    opacity: 0.2;
   }
   50% {
-    transform: translateY(8px);
-    opacity: 1;
+    transform: translate(-50%, -1px);
+    opacity: 0.85;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-reveal,
-  .hero-cue {
+  .swipe-hand,
+  .swipe-chevron {
     animation: none;
+  }
+  .swipe-hand,
+  .swipe-chevron {
+    transform: translateX(-50%);
+    opacity: 0.7;
   }
 }
 

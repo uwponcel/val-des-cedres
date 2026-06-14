@@ -42,7 +42,7 @@ export function Approche() {
 
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-ink/10" />
 
-      <div className="relative z-10 flex h-full flex-col justify-end p-8 md:p-16">
+      <div className="relative z-10 flex h-full flex-col justify-end p-8 pb-28 md:p-16 md:pb-32">
         <div className="hero-reveal">
           <p className="font-sans text-sm uppercase tracking-[0.3em] text-bone/70">
             {t('hero.kicker')} · {property.region}
@@ -56,8 +56,32 @@ export function Approche() {
         </div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-6 z-10 flex justify-center">
-        <span className="hero-cue font-sans text-xs uppercase tracking-[0.3em] text-bone/60">
+      <div className="absolute inset-x-0 bottom-7 z-10 flex flex-col items-center gap-2 text-bone/75">
+        <span aria-hidden className="relative block h-10 w-7">
+          <svg
+            className="swipe-chevron absolute left-1/2 top-0"
+            width="16"
+            height="9"
+            viewBox="0 0 16 9"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M1 8l7-7 7 7" />
+          </svg>
+          <svg
+            className="swipe-hand absolute bottom-0 left-1/2"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.06.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.21 0-.62-.38-1.16-.92-1.4z" />
+          </svg>
+        </span>
+        <span className="font-sans text-xs uppercase tracking-[0.3em] text-bone/60">
           {t('hero.cue')}
         </span>
       </div>
