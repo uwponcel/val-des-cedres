@@ -35,11 +35,12 @@ const fragmentShader = /* glsl */ `
             + sin(vUv.y * 32.0 - uTime * 0.8) * 0.0035;
 
     vec2 uv = coverUv(vUv, uRes, uImg);
-    uv += w * (0.5 + depth * 1.2);
+    // ripple intensifies over the water across the lower frame
+    uv += w * (0.35 + depth * 2.2);
     vec3 col = texture2D(uTex, uv).rgb;
 
-    // faint cool wash toward the lower edge - a hint of flowing water
-    col = mix(col, uTint, depth * 0.08);
+    // faint cool wash over the water - a hint of current
+    col = mix(col, uTint, depth * 0.1);
 
     gl_FragColor = vec4(col, 1.0);
   }
@@ -48,7 +49,7 @@ const fragmentShader = /* glsl */ `
 function WaterPlane() {
   const mat = useRef<THREE.ShaderMaterial>(null);
   const { viewport, size } = useThree();
-  const tex = useTexture('/photos/m21723694-aer69-01.jpg');
+  const tex = useTexture('/photos/m21723694-vea05-01.jpg');
   tex.colorSpace = THREE.SRGBColorSpace;
 
   const uniforms = useMemo(() => {

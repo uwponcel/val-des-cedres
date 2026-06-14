@@ -13,6 +13,7 @@ const LEVELS: { key: RoomLevel; labelKey: string }[] = [
 const PLANS = [
   { file: '/photos/m21723694-div76-01.jpg', code: 'plan', labelKey: 'pieces.plan.main' },
   { file: '/photos/m21723694-div77-01.jpg', code: 'plan', labelKey: 'pieces.plan.garden' },
+  { file: '/photos/m21723694-div78-01.jpg', code: 'plan', labelKey: 'pieces.plan.full' },
   { file: '/photos/m21723694-gar79-01.jpg', code: 'plan', labelKey: 'pieces.plan.garage' },
 ] satisfies (Photo & { labelKey: string })[];
 
@@ -82,7 +83,7 @@ export function Pieces() {
         <h3 className="mt-20 font-sans text-xs uppercase tracking-[0.3em] text-cognac">
           {t('pieces.plans')}
         </h3>
-        <div className="mt-5 grid gap-6 sm:grid-cols-3">
+        <div className="mt-5 grid grid-cols-2 gap-6 lg:grid-cols-4">
           {PLANS.map((p, i) => (
             <figure key={p.file}>
               <button

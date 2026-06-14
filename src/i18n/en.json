@@ -51,6 +51,7 @@
   "pieces.gallery": "Gallery",
   "pieces.plan.main": "Main floor",
   "pieces.plan.garden": "Garden level",
+  "pieces.plan.full": "Both floors",
   "pieces.plan.garage": "Detached garage",
   "lightbox.close": "Close",
   "lightbox.prev": "Previous image",

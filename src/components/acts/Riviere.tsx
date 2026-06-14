@@ -17,8 +17,8 @@ export function Riviere() {
   return (
     <section id="riviere" className="relative flex min-h-screen items-end overflow-hidden">
       <img
-        src="/photos/m21723694-aer69-01.jpg"
-        alt="Vue aérienne de la rivière Chevreuil serpentant dans la vallée boisée en automne"
+        src="/photos/m21723694-vea05-01.jpg"
+        alt="Rivière Chevreuil en cascades avec bassin naturel bordant la propriété"
         className="absolute inset-0 h-full w-full object-cover"
         loading="lazy"
       />
