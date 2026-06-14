@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import { useRef } from 'react';
 import { useI18n } from '../../i18n/useI18n';
 import { prefersReducedMotion } from '../../lib/scroll';
+import { useCrossfade } from '../../lib/useCrossfade';
 
 const SCENES = [
   {
@@ -19,38 +19,45 @@ const SCENES = [
     alt: 'Bain vapeur et douche à jets en verre',
     capKey: 'sanctuaire.cap.3',
   },
+  {
+    src: '/photos/m21723694-sbp34-01.jpg',
+    alt: 'Salle de bain principale avec bain encastré et vue sur le boisé',
+    capKey: 'sanctuaire.cap.4',
+  },
+  {
+    src: '/photos/m21723694-sbp35-01.jpg',
+    alt: 'Douche en verre attenante à la chambre des maîtres',
+    capKey: 'sanctuaire.cap.5',
+  },
+  {
+    src: '/photos/m21723694-sdb49-01.jpg',
+    alt: 'Salle de bain complète à double vasque, bain et douche',
+    capKey: 'sanctuaire.cap.6',
+  },
+  {
+    src: '/photos/m21723694-s-e28-01.jpg',
+    alt: "Salle d'eau avec vasque de cuivre sur pierre brute",
+    capKey: 'sanctuaire.cap.7',
+  },
 ];
 
-/** Act 3 - the thermal sanctuary. Moody, dark, with drifting steam. */
+/** Act 3 - the thermal sanctuary: spa, sauna and every bath. Moody, with steam. */
 export function Sanctuaire() {
   const { t } = useI18n();
   const outer = useRef<HTMLDivElement>(null);
-  const imgs = useRef<(HTMLImageElement | null)[]>([]);
-  const caps = useRef<(HTMLParagraphElement | null)[]>([]);
+  const imgs = useRef<(HTMLElement | null)[]>([]);
+  const caps = useRef<(HTMLElement | null)[]>([]);
   const reduced = prefersReducedMotion();
 
-  useEffect(() => {
-    if (reduced) return;
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        defaults: { ease: 'none', duration: 0.4 },
-        scrollTrigger: {
-          trigger: outer.current,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 0.5,
-        },
-      });
-      tl.to([imgs.current[0], caps.current[0]], { opacity: 0 }, 0.85)
-        .to([imgs.current[1], caps.current[1]], { opacity: 1 }, 0.85)
-        .to([imgs.current[1], caps.current[1]], { opacity: 0 }, 1.85)
-        .to([imgs.current[2], caps.current[2]], { opacity: 1 }, 1.85);
-    }, outer);
-    return () => ctx.revert();
-  }, [reduced]);
+  useCrossfade(outer, [imgs, caps], SCENES.length);
 
   return (
-    <section id="sanctuaire" ref={outer} className={reduced ? 'relative' : 'relative h-[300vh]'}>
+    <section
+      id="sanctuaire"
+      ref={outer}
+      className="relative"
+      style={reduced ? undefined : { height: `${SCENES.length * 100}vh` }}
+    >
       <div className="sticky top-0 flex h-screen items-end overflow-hidden bg-ink">
         {SCENES.map((s, i) => (
           <img
@@ -89,7 +96,7 @@ export function Sanctuaire() {
           <p className="mt-4 max-w-xl font-sans text-lg text-bone/70">
             {t('act.sanctuaire.tagline')}
           </p>
-          <div className="relative mt-4 h-12">
+          <div className="relative mt-4 h-14">
             {SCENES.map((s, i) => (
               <p
                 key={s.capKey}
@@ -105,6 +112,20 @@ export function Sanctuaire() {
           </div>
         </div>
       </div>
+
+      {reduced && (
+        <div className="grid gap-1 md:grid-cols-2">
+          {SCENES.slice(1).map((s) => (
+            <img
+              key={s.src}
+              src={s.src}
+              alt={s.alt}
+              className="h-80 w-full object-cover"
+              loading="lazy"
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
