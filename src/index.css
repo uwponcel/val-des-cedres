@@ -72,6 +72,45 @@ body {
   }
 }
 
+/* Single-video hero: text reveal + scroll cue */
+.hero-reveal {
+  animation: heroReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-cue {
+  animation: heroCue 2.6s ease-in-out infinite;
+}
+
+@keyframes heroCue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal,
+  .hero-cue {
+    animation: none;
+  }
+}
+
 /* Property marker on the grounds map */
 .vc-pin {
   width: 16px;
