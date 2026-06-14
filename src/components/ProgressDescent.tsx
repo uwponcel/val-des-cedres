@@ -7,6 +7,7 @@ const ACTS = [
   'arrivee',
   'interieur',
   'sanctuaire',
+  'vers-riviere',
   'riviere',
   'domaine',
   'pieces',

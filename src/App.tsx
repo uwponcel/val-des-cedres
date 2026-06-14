@@ -6,6 +6,7 @@ import { Approche } from './components/acts/Approche';
 import { Arrivee } from './components/acts/Arrivee';
 import { Interieur } from './components/acts/Interieur';
 import { Sanctuaire } from './components/acts/Sanctuaire';
+import { VersRiviere } from './components/acts/VersRiviere';
 import { Riviere } from './components/acts/Riviere';
 import { Domaine } from './components/acts/Domaine';
 import { Pieces } from './components/acts/Pieces';
@@ -27,6 +28,7 @@ export default function App() {
         <Arrivee />
         <Interieur />
         <Sanctuaire />
+        <VersRiviere />
         <Riviere />
         <Domaine />
         <Pieces />
