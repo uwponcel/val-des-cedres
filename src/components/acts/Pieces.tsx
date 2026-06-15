@@ -188,9 +188,10 @@ export function Pieces() {
               className="group relative aspect-[4/3] overflow-hidden rounded-sm bg-ink/5"
             >
               <img
-                src={p.file}
+                src={p.file.replace('/photos/', '/photos/thumbs/')}
                 alt=""
                 loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </button>
